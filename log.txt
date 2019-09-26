@@ -1,0 +1,112 @@
+rem install package
+sfdx force:package:install --package "04t0a000001wgua"
+[Deprecation notice: The --securitytype parameter's default value will change from AllUsers to AdminsOnly in an upcoming release (v47.0 or later).]
+PackageInstallRequest is currently InProgress. You can continue to query the status using
+sfdx force:package:install:report -i 0Hf1X0000008ab8SAA -u test-xmetblx731nk@example.com
+
+rem create a directory to retrieve
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>mkdir "Volunteer Tracker Objects"
+
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>sfdx force:mdapi:retrieve --packagenames "Volunteer Tracker Objects"  --retrievetargetdir "Volunteer Tracker Objects"
+Retrieving source...
+
+=== Status
+Status:  Pending
+jobid:  09S1X000000QBxaUAG
+
+
+=== Result
+Status:  Succeeded
+jobid:  09S1X000000QBxaUAG
+
+Wrote retrieve zip to F:\OneDrive\90-TrailheadDX\ACSSpecialist\Volunteer Tracker Objects\unpackaged.zip.
+
+rem unzip ....
+
+rem convert 
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>sfdx force:mdapi:convert --rootdir "Volunteer Tracker Objects\Volunteer Tracker Objects"
+=== Converted Source
+STATE  FULL NAME                                                TYPE          PROJECT PATH
+─────  ───────────────────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────
+Add    Volunteer_Activity__c-Volunteer Activity Layout          Layout        force-app\main\default\layouts\Volunteer_Activity__c-Volunteer Activity Layout.layout-meta.xml
+Add    Volunteer_Job__c-Volunteer Jobs Layout                   Layout        force-app\main\default\layouts\Volunteer_Job__c-Volunteer Jobs Layout.layout-meta.xml
+Add    Volunteer_Shift_Worker__c-Volunteer Shift Worker Layout  Layout        force-app\main\default\layouts\Volunteer_Shift_Worker__c-Volunteer Shift Worker Layout.layout-meta.xml
+Add    Volunteer_Shift__c-Volunteer Shift Layout                Layout        force-app\main\default\layouts\Volunteer_Shift__c-Volunteer Shift Layout.layout-meta.xml
+Add    Account.Business_Account                                 RecordType    force-app\main\default\objects\Account\recordTypes\Business_Account.recordType-meta.xml
+Add    Volunteer_Activity__c                                    CustomObject  force-app\main\default\objects\Volunteer_Activity__c\Volunteer_Activity__c.object-meta.xml
+Add    Volunteer_Job__c                                         CustomObject  force-app\main\default\objects\Volunteer_Job__c\Volunteer_Job__c.object-meta.xml
+Add    Volunteer_Job__c.Location_City__c                        CustomField   force-app\main\default\objects\Volunteer_Job__c\fields\Location_City__c.field-meta.xml
+Add    Volunteer_Job__c.Location_State_Province__c              CustomField   force-app\main\default\objects\Volunteer_Job__c\fields\Location_State_Province__c.field-meta.xml
+Add    Volunteer_Job__c.Location_Street__c                      CustomField   force-app\main\default\objects\Volunteer_Job__c\fields\Location_Street__c.field-meta.xml
+Add    Volunteer_Job__c.Location_Zip_Postal_Code__c             CustomField   force-app\main\default\objects\Volunteer_Job__c\fields\Location_Zip_Postal_Code__c.field-meta.xml
+Add    Volunteer_Job__c.Recommended_Wardrobe__c                 CustomField   force-app\main\default\objects\Volunteer_Job__c\fields\Recommended_Wardrobe__c.field-meta.xml
+Add    Volunteer_Shift_Worker__c                                CustomObject  force-app\main\default\objects\Volunteer_Shift_Worker__c\Volunteer_Shift_Worker__c.object-meta.xml
+Add    Volunteer_Shift__c                                       CustomObject  force-app\main\default\objects\Volunteer_Shift__c\Volunteer_Shift__c.object-meta.xml
+Add    Volunteer_Shift__c.Description__c                        CustomField   force-app\main\default\objects\Volunteer_Shift__c\fields\Description__c.field-meta.xml
+
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>
+rem uninstall package
+sfdx force:source:push
+
+Business requirement and 
+sfdx force:source:pull
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>sfdx force:source:pull
+=== Pulled Source
+STATE    FULL NAME                                                          TYPE            PROJECT PATH
+───────  ─────────────────────────────────────────────────────────────────  ──────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Add      Account.Volunteer_Organization_Account_compact_layout              CompactLayout   force-app\main\default\objects\Account\compactLayouts\Volunteer_Organization_Account_compact_layout.compactLayout-meta.xml
+Add      Account.Volunteer_Organization_Status__c                           CustomField     force-app\main\default\objects\Account\fields\Volunteer_Organization_Status__c.field-meta.xml
+Add      Account.Volunteer_Organization_Account                             RecordType      force-app\main\default\objects\Account\recordTypes\Volunteer_Organization_Account.recordType-meta.xml
+Add      User.Volunteer_Skills__c                                           CustomField     force-app\main\default\objects\User\fields\Volunteer_Skills__c.field-meta.xml
+Add      Volunteer_Shift__c.Desired_of_Volunteers__c                        CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Desired_of_Volunteers__c.field-meta.xml
+Add      Volunteer_Shift__c.Shift_End_Time__c                               CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Shift_End_Time__c.field-meta.xml
+Add      Volunteer_Shift__c.Shift_Hours__c                                  CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Shift_Hours__c.field-meta.xml
+Add      Volunteer_Shift__c.Shift_Start_Time__c                             CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Shift_Start_Time__c.field-meta.xml
+Add      Volunteer_Shift__c.Shifts_Taken__c                                 CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Shifts_Taken__c.field-meta.xml
+Add      Volunteer_Shift__c.Total_Vol_Hours_for_Shift__c                    CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Total_Vol_Hours_for_Shift__c.field-meta.xml
+Add      Volunteer_Shift__c.Volunteer_Activity__c                           CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Volunteer_Activity__c.field-meta.xml
+Add      Volunteer_Shift__c.Volunteer_Job__c                                CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Volunteer_Job__c.field-meta.xml
+Add      Volunteer_Shift__c.Volunteer_Organization__c                       CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\Volunteer_Organization__c.field-meta.xml
+Add      Volunteer_Shift__c.of_Volunteers_Still_Needed__c                   CustomField     force-app\main\default\objects\Volunteer_Shift__c\fields\of_Volunteers_Still_Needed__c.field-meta.xml
+Add      Volunteer_Shift__c.Start_before_End                                ValidationRule  force-app\main\default\objects\Volunteer_Shift__c\validationRules\Start_before_End.validationRule-meta.xml
+Add      Volunteer_Shift_Worker__c.IsShiftVolunteer__c                      CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\IsShiftVolunteer__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Shift_End_Time__c                        CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Shift_End_Time__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Shift_Hours__c                           CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Shift_Hours__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Shift_Start_Time__c                      CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Shift_Start_Time__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Status__c                                CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Status__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Volunteer_Activity__c                    CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Volunteer_Activity__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Volunteer_Job__c                         CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Volunteer_Job__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Volunteer_Organization__c                CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Volunteer_Organization__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Volunteer_Shift__c                       CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Volunteer_Shift__c.field-meta.xml
+Add      Volunteer_Shift_Worker__c.Volunteer__c                             CustomField     force-app\main\default\objects\Volunteer_Shift_Worker__c\fields\Volunteer__c.field-meta.xml
+Add      Volunteer_Job__c.Attributed_Volunteer_Hours__c                     CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Attributed_Volunteer_Hours__c.field-meta.xml
+Add      Volunteer_Job__c.Cumulative_Volunteers_Needed__c                   CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Cumulative_Volunteers_Needed__c.field-meta.xml
+Add      Volunteer_Job__c.Job_Description__c                                CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Job_Description__c.field-meta.xml
+Add      Volunteer_Job__c.Number_of_Shifts__c                               CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Number_of_Shifts__c.field-meta.xml
+Add      Volunteer_Job__c.Volunteer_Activity__c                             CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Volunteer_Activity__c.field-meta.xml
+Add      Volunteer_Job__c.Volunteer_Organization__c                         CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Volunteer_Organization__c.field-meta.xml
+Add      Volunteer_Job__c.Volunteer_Skills__c                               CustomField     force-app\main\default\objects\Volunteer_Job__c\fields\Volunteer_Skills__c.field-meta.xml
+Add      Volunteer_Activity__c.Volunteer_Organization__c                    CustomField     force-app\main\default\objects\Volunteer_Activity__c\fields\Volunteer_Organization__c.field-meta.xml
+Changed  Volunteer_Activity__c                                              CustomObject    force-app\main\default\objects\Volunteer_Activity__c\Volunteer_Activity__c.object-meta.xml
+Add      Volunteer_Jobs_with_Volunteer_Shifts_with_Volunteer_Shift_Workers  ReportType      force-app\main\default\reportTypes\Volunteer_Jobs_with_Volunteer_Shifts_with_Volunteer_Shift_Workers.reportType-meta.xml
+Add      Account-Account %28Marketing%29 Layout                             Layout          force-app\main\default\layouts\Account-Account %28Marketing%29 Layout.layout-meta.xml
+Add      Account-Volunteer Organization Account Page Layout                 Layout          force-app\main\default\layouts\Account-Volunteer Organization Account Page Layout.layout-meta.xml
+Add      Account-Account Layout                                             Layout          force-app\main\default\layouts\Account-Account Layout.layout-meta.xml
+Add      Account-Account %28Support%29 Layout                               Layout          force-app\main\default\layouts\Account-Account %28Support%29 Layout.layout-meta.xml
+Add      Account-Account %28Sales%29 Layout                                 Layout          force-app\main\default\layouts\Account-Account %28Sales%29 Layout.layout-meta.xml
+Add      User-User Layout                                                   Layout          force-app\main\default\layouts\User-User Layout.layout-meta.xml
+Changed  Volunteer_Activity__c-Volunteer Activity Layout                    Layout          force-app\main\default\layouts\Volunteer_Activity__c-Volunteer Activity Layout.layout-meta.xmlChanged  Volunteer_Job__c-Volunteer Jobs Layout                             Layout          force-app\main\default\layouts\Volunteer_Job__c-Volunteer Jobs Layout.layout-meta.xml
+Changed  Volunteer_Shift_Worker__c-Volunteer Shift Worker Layout            Layout          force-app\main\default\layouts\Volunteer_Shift_Worker__c-Volunteer Shift Worker Layout.layout-meta.xml
+Changed  Volunteer_Shift__c-Volunteer Shift Layout                          Layout          force-app\main\default\layouts\Volunteer_Shift__c-Volunteer Shift Layout.layout-meta.xml
+Add      Custom%3A Sales Profile                                            Profile         force-app\main\default\profiles\Custom%3A Sales Profile.profile-meta.xml
+Add      Admin                                                              Profile         force-app\main\default\profiles\Admin.profile-meta.xml
+Add      Custom%3A Marketing Profile                                        Profile         force-app\main\default\profiles\Custom%3A Marketing Profile.profile-meta.xml
+Add      Custom%3A Support Profile                                          Profile         force-app\main\default\profiles\Custom%3A Support Profile.profile-meta.xml
+Add      Volunteerism_Board                                                 PermissionSet   force-app\main\default\permissionsets\Volunteerism_Board.permissionset-meta.xml
+
+
+rem create user
+F:\OneDrive\90-TrailheadDX\ACSSpecialist>sfdx force:user:create -f config/project-user-def.json
+ERROR running force:user:create:  There are no available user licenses for the user profile "Custom: Sales Profile".
+rem user still created issue on role
