@@ -1,0 +1,4 @@
+Please confirm shift :
+Name : {!Volunteer_Shift_Worker__c.Volunteer_Job__c}
+Start Ime : {!Volunteer_Shift_Worker__c.Shift_Start_Time__c}
+End Time : {!Volunteer_Shift_Worker__c.Shift_End_Time__c}
